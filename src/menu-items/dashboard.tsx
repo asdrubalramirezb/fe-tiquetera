@@ -2,7 +2,7 @@
 import { FormattedMessage } from 'react-intl';
 
 // assets
-import { Home3, HomeTrendUp, Box1 } from 'iconsax-react';
+import { Box1, Home3, HomeTrendUp } from 'iconsax-react';
 
 // type
 import { NavItemType } from 'types/menu';
@@ -20,30 +20,7 @@ const loadingMenu: NavItemType = {
   title: <FormattedMessage id="dashboard" />,
   type: 'group',
   icon: icons.loading,
-  children: [
-    {
-      id: 'dashboard1',
-      title: <FormattedMessage id="dashboard" />,
-      type: 'collapse',
-      icon: icons.loading,
-      children: [
-        {
-          id: 'default1',
-          title: 'loading',
-          type: 'item',
-          url: '/dashboard/default',
-          breadcrumbs: false
-        },
-        {
-          id: 'analytics1',
-          title: 'loading',
-          type: 'item',
-          url: '/dashboard/analytics',
-          breadcrumbs: false
-        }
-      ]
-    }
-  ]
+  children: []
 };
 
 // ==============================|| MENU ITEMS - API ||============================== //

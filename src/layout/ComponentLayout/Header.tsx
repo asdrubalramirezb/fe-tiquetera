@@ -6,8 +6,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 // MATERIAL - UI
-import { alpha, useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -20,16 +18,18 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
+import { alpha, useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // PROJECT IMPORTS
-import Logo from 'components/logo';
-import IconButton from 'components/@extended/IconButton';
 import AnimateButton from 'components/@extended/AnimateButton';
+import IconButton from 'components/@extended/IconButton';
+import Logo from 'components/logo';
 
-import { APP_DEFAULT_PATH } from 'config';
 import { handlerComponentDrawer, useGetMenuMaster } from 'api/menu';
+import { APP_DEFAULT_PATH } from 'config';
 
 // ASSETS
 import { DocumentDownload, ExportSquare, HambergerMenu, Minus } from 'iconsax-react';
@@ -172,30 +172,6 @@ const Header = () => {
                 onKeyDown={drawerToggler(false)}
               >
                 <List>
-                  <Links sx={linksSx} href="/login" target="_blank">
-                    <ListItemButton component="span">
-                      <ListItemIcon>
-                        <Minus color={theme.palette.secondary.main} />
-                      </ListItemIcon>
-                      <ListItemText primary="Dashboard" primaryTypographyProps={{ variant: 'h6', color: 'secondary.main' }} />
-                    </ListItemButton>
-                  </Links>
-                  <Links sx={linksSx} href="/components-overview/buttons" target="_blank">
-                    <ListItemButton component="span">
-                      <ListItemIcon>
-                        <Minus color={theme.palette.secondary.main} />
-                      </ListItemIcon>
-                      <ListItemText primary="All Components" primaryTypographyProps={{ variant: 'h6', color: 'secondary.main' }} />
-                    </ListItemButton>
-                  </Links>
-                  <Links sx={linksSx} href="https://codedthemes.com/?s=able+pro" target="_blank">
-                    <ListItemButton component="span">
-                      <ListItemIcon>
-                        <Minus color={theme.palette.secondary.main} />
-                      </ListItemIcon>
-                      <ListItemText primary="Free Version" primaryTypographyProps={{ variant: 'h6', color: 'secondary.main' }} />
-                    </ListItemButton>
-                  </Links>
                   <Links sx={linksSx} href="https://phoenixcoded.gitbook.io/able-pro/v/nextjs" target="_blank">
                     <ListItemButton component="span">
                       <ListItemIcon>

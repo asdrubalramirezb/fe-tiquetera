@@ -1,23 +1,23 @@
 import { useLayoutEffect, useState } from 'react';
 
 // MATERIAL - UI
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // PROJECT IMPORTS
-import NavGroup from './NavGroup';
 import menuItem from 'menu-items';
 import { MenuFromAPI } from 'menu-items/dashboard';
+import NavGroup from './NavGroup';
 
-import useConfig from 'hooks/useConfig';
-import { HORIZONTAL_MAX_ITEM } from 'config';
 import { useGetMenu, useGetMenuMaster } from 'api/menu';
+import { HORIZONTAL_MAX_ITEM } from 'config';
+import useConfig from 'hooks/useConfig';
 
 // TYPES
-import { NavItemType } from 'types/menu';
 import { MenuOrientation } from 'types/config';
+import { NavItemType } from 'types/menu';
 
 function isFound(arr: any, str: string) {
   return arr.items.some((element: any) => {
@@ -48,10 +48,8 @@ const Navigation = () => {
 
   useLayoutEffect(() => {
     if (menuLoading && !isFound(menuItem, 'group-dashboard-loading')) {
-      menuItem.items.splice(0, 0, dashboardMenu);
       setMenuItems({ items: [...menuItem.items] });
     } else if (!menuLoading && dashboardMenu?.id !== undefined && !isFound(menuItem, 'group-dashboard')) {
-      menuItem.items.splice(0, 1, dashboardMenu);
       setMenuItems({ items: [...menuItem.items] });
     } else {
       setMenuItems({ items: [...menuItem.items] });

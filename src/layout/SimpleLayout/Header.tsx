@@ -1,13 +1,11 @@
 'use client';
 
-import { useState, cloneElement, ReactElement } from 'react';
+import { cloneElement, ReactElement, useState } from 'react';
 
 // NEXT
 import Link from 'next/link';
 
 // MATERIAL - UI
-import { alpha, useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -20,20 +18,21 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
+import { alpha, useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 // PROJECT IMPORTS
-import IconButton from 'components/@extended/IconButton';
 import AnimateButton from 'components/@extended/AnimateButton';
+import IconButton from 'components/@extended/IconButton';
 import Logo from 'components/logo';
 
 // ASSETS
 import { DocumentDownload, ExportSquare, HambergerMenu, Minus } from 'iconsax-react';
 
 // TYPES
-import { ThemeDirection } from 'types/config';
 
 interface ElevationScrollProps {
   children: ReactElement;
@@ -118,20 +117,6 @@ const Header = () => {
               }}
               spacing={3}
             >
-              <Links
-                className="header-link"
-                sx={{ ml: theme.direction === ThemeDirection.RTL ? 3 : 0 }}
-                color="secondary.main"
-                component={Link}
-                href="/login"
-                target="_blank"
-                underline="none"
-              >
-                Dashboard
-              </Links>
-              <Links className="header-link" color="secondary.main" component={Link} href="/components-overview/buttons" underline="none">
-                Components
-              </Links>
               <Links
                 className="header-link"
                 color="secondary.main"
