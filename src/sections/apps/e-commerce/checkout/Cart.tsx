@@ -140,7 +140,7 @@ const Cart = ({ checkout, onNext, removeProduct, updateQuantity }: CartProps) =>
                                     variant="rounded"
                                     color="secondary"
                                     type="combined"
-                                    src={row.image ? `${prodImage}/thumbs/${row.image}` : ''}
+                                    src={row.image ? `${prodImage}/${row.image}` : ''}
                                   />
                                 </Grid>
                                 <Grid item>

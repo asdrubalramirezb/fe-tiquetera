@@ -30,7 +30,8 @@ const ProductView = ({ data }: any) => {
                   height={400}
                   style={{
                     maxWidth: '100%',
-                    height: 'auto'
+                    height: 'auto',
+                    width: '100%'
                   }}
                 />
               </Box>

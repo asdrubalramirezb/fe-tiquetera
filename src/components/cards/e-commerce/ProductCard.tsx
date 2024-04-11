@@ -88,7 +88,7 @@ const ProductCard = ({
 
   return (
     <MainCard content={false} sx={{ '&:hover': { transform: 'scale3d(1.02, 1.02, 1)', transition: 'all .4s ease-in-out' } }}>
-      <Box sx={{ width: 250, m: 'auto' }}>
+      <Box sx={{ width: '100%', m: 'auto' }}>
         <CardMedia
           sx={{ height: 250, textDecoration: 'none', opacity: isStock ? 1 : 0.25 }}
           image={prodProfile}
@@ -149,7 +149,7 @@ const ProductCard = ({
               </Stack>
 
               <Button variant="contained" onClick={addCart} disabled={!isStock}>
-                {!isStock ? 'Sold Out' : 'Add to Cart'}
+                {!isStock ? 'Sin cupos' : 'Añadir Al Carrito'}
               </Button>
             </Stack>
           </Grid>

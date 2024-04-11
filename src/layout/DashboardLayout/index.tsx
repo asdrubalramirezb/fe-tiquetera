@@ -10,10 +10,8 @@ import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 
 // PROJECT IMPORTS
-import Drawer from './Drawer';
 import Header from './Header';
 import Footer from './Footer';
-import HorizontalBar from './Drawer/HorizontalBar';
 import Loader from 'components/Loader';
 import Breadcrumbs from 'components/@extended/Breadcrumbs';
 
@@ -49,8 +47,6 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
     <Box sx={{ display: 'flex', width: '100%' }}>
       <Header />
-      {!isHorizontal ? <Drawer /> : <HorizontalBar />}
-
       <Box component="main" sx={{ width: `calc(100% - ${DRAWER_WIDTH}px)`, flexGrow: 1, p: { xs: 1, sm: 3 } }}>
         <Toolbar sx={{ mt: isHorizontal ? 8 : 'inherit', mb: isHorizontal ? 2 : 'inherit' }} />
         <Container

@@ -81,7 +81,7 @@ const ProductsHeader = ({ filter, handleDrawerOpen, setFilter }: ProductHeaderPr
               )
             }}
             value={filter.search}
-            placeholder="Search Product"
+            placeholder="Buscar Tickets"
             size="medium"
             onChange={handleSearch}
           />

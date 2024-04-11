@@ -22,6 +22,7 @@ import { productFilter, useGetProducts } from 'api/products';
 
 // TYPES
 import { Products as ProductsTypo, ProductsFilter } from 'types/e-commerce';
+import WelcomeBanner from 'sections/dashboard/default/WelcomeBanner';
 
 const drawerWidth = 320;
 
@@ -106,24 +107,58 @@ const ProductsPage = () => {
     </Grid>
   ));
   if (!productsLoading && products && products.length > 0) {
-    productResult = products.map((product: ProductsTypo, index) => (
-      <Grid key={index} item xs={12} sm={6} md={4}>
-        <ProductCard
-          id={product.id}
-          image={product.image}
-          name={product.name}
-          brand={product.brand}
-          offer={product.offer}
-          isStock={product.isStock}
-          description={product.description}
-          offerPrice={product.offerPrice}
-          salePrice={product.salePrice}
-          rating={product.rating}
-          color={product.colors ? product.colors[0] : undefined}
-          open={openFilterDrawer}
-        />
-      </Grid>
-    ));
+    productResult = (
+      <>
+        <Grid item xs={12} sm={6} md={4}>
+          <ProductCard
+            id={1}
+            image={'prod-1.png'}
+            name={'SOY CHACHA: PGLO EL SHOW'}
+            brand={''}
+            offer={''}
+            isStock={true}
+            description={''}
+            offerPrice={20}
+            salePrice={19}
+            rating={4}
+            color={undefined}
+            open={openFilterDrawer}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <ProductCard
+            id={1}
+            image={'prod-2.png'}
+            name={'F*cks News: PAIS DE MIERDA'}
+            brand={''}
+            offer={''}
+            isStock={true}
+            description={''}
+            offerPrice={40}
+            salePrice={39}
+            rating={4}
+            color={undefined}
+            open={openFilterDrawer}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <ProductCard
+            id={1}
+            image={'prod-3.png'}
+            name={'F*cks News: CLASICO AMERICANO'}
+            brand={''}
+            offer={''}
+            isStock={true}
+            description={''}
+            offerPrice={30}
+            salePrice={29}
+            rating={4}
+            color={undefined}
+            open={openFilterDrawer}
+          />
+        </Grid>
+      </>
+    );
   } else if (!productsLoading && products && products.length === 0) {
     productResult = (
       <Grid item xs={12} sx={{ mt: 3 }}>
@@ -142,6 +177,7 @@ const ProductsPage = () => {
         initialState={initialState}
       />
       <Main theme={theme} open={openFilterDrawer} container={container}>
+        <WelcomeBanner />
         <Grid container spacing={2.5}>
           <Grid item xs={12}>
             <ProductsHeader filter={filter} handleDrawerOpen={handleDrawerOpen} setFilter={setFilter} />

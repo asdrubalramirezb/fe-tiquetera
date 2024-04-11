@@ -112,6 +112,8 @@ function ReactTable({ columns, data, renderRowSubComponent }: Props) {
     // eslint-disable-next-line
   }, [matchDownSM]);
 
+  const rowProps = row.getRowProps();
+
   const router = useRouter();
 
   const handleAddProduct = () => {
@@ -145,9 +147,14 @@ function ReactTable({ columns, data, renderRowSubComponent }: Props) {
             ))}
           </TableHead>
           <TableBody {...getTableBodyProps()}>
-            {page.map((row: Row, i: number) => {
+            <Fragment>
+
+              <ProductView data={1} />
+            </Fragment>
+
+            {/* {page.map((row: Row, i: number) => {
               prepareRow(row);
-              const rowProps = row.getRowProps();
+              
 
               return (
                 <Fragment key={i}>
@@ -168,7 +175,7 @@ function ReactTable({ columns, data, renderRowSubComponent }: Props) {
                   {row.isExpanded && renderRowSubComponent({ row, rowProps, visibleColumns, expanded })}
                 </Fragment>
               );
-            })}
+            })} */}
             <TableRow sx={{ '&:hover': { bgcolor: 'transparent !important' } }}>
               <TableCell sx={{ p: 2, py: 3 }} colSpan={9}>
                 <TablePagination gotoPage={gotoPage} rows={rows} setPageSize={setPageSize} pageSize={pageSize} pageIndex={pageIndex} />

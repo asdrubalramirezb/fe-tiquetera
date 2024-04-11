@@ -31,7 +31,7 @@ const ColorScheme = () => {
   const colorOptions: ColorProps[] = [
     {
       id: 'default',
-      primary: mode === ThemeMode.DARK ? '#4680FF' : '#4680FF',
+      primary: mode === ThemeMode.DARK ? '#572364' : '#572364',
       darker: mode === ThemeMode.DARK ? '#2F63FF' : '#2F63FF'
     },
     {

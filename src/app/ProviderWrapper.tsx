@@ -13,7 +13,6 @@ import Locales from 'components/Locales';
 import ScrollTop from 'components/ScrollTop';
 
 import Notistack from 'components/third-party/Notistack';
-import Customization from 'components/customization';
 import Snackbar from 'components/@extended/Snackbar';
 
 // ==============================|| PROVIDER WRAPPER  ||============================== //
@@ -29,7 +28,6 @@ const ProviderWrapper = ({ children }: { children: ReactElement }) => {
                 <Notistack>
                   <Snackbar />
                   {children}
-                  <Customization />
                 </Notistack>
               </SessionProvider>
             </ScrollTop>

@@ -28,20 +28,14 @@ const HeaderContent = () => {
   const downLG = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const localization = useMemo(() => <Localization />, [i18n]);
-
-  const megaMenu = useMemo(() => <MegaMenuSection />, []);
 
   return (
     <>
       {menuOrientation === MenuOrientation.HORIZONTAL && !downLG && <DrawerHeader open={true} />}
       {!downLG && <Search />}
-      {!downLG && megaMenu}
-      {!downLG && localization}
       {downLG && <Box sx={{ width: '100%', ml: 1 }} />}
 
       <Notification />
-      <Message />
       {!downLG && <Profile />}
       {downLG && <MobileSection />}
     </>

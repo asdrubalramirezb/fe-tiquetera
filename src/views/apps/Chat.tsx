@@ -117,7 +117,7 @@ const Chat = () => {
     setEmailDetails((prev) => !prev);
   };
 
-  const [openChatDrawer, setOpenChatDrawer] = useState(true);
+  const [openChatDrawer, setOpenChatDrawer] = useState(false);
   const handleDrawerOpen = () => {
     setOpenChatDrawer((prevState) => !prevState);
   };
