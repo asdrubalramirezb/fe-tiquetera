@@ -36,11 +36,12 @@ import { ThemeMode } from 'types/config';
 import { SnackbarProps } from 'types/snackbar';
 import { Products } from 'types/e-commerce';
 
+
 const prodImage: any = '/assets/images/e-commerce';
 
 // ==============================|| PRODUCT DETAILS - IMAGES ||============================== //
 
-const ProductImages = ({ product }: { product: Products }) => {
+const ProductImages = ({ product }: { product: Products, id: string }) => {
   const theme = useTheme();
   const products = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9];
 
@@ -145,6 +146,7 @@ const ProductImages = ({ product }: { product: Products }) => {
                   <CardMedia
                     onClick={() => setModal(!modal)}
                     component="img"
+                    height={'auto'}
                     image={selected}
                     title="Scroll Zoom"
                     sx={{ borderRadius: `4px`, position: 'relative' }}
@@ -173,22 +175,7 @@ const ProductImages = ({ product }: { product: Products }) => {
           </IconButton>
         </MainCard>
       </Grid>
-      <Grid item xs={12}>
-        <Box sx={{ '& .slick-slider': { display: 'flex', alignItems: 'center', mt: 2 } }}>
-          <Slider {...settings}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-              <Box key={index} onClick={() => setSelected(prodImage(`./prod-${item}.png`))} sx={{ p: 1 }}>
-                <Avatar
-                  size={matchDownLG ? 'xl' : 'md'}
-                  src={`${prodImage}/thumbs/prod-${item}.png`}
-                  variant="rounded"
-                  sx={{ m: '0 auto', cursor: 'pointer', bgcolor: theme.palette.secondary[200] }}
-                />
-              </Box>
-            ))}
-          </Slider>
-        </Box>
-      </Grid>
+      
     </Grid>
   );
 };

@@ -84,11 +84,27 @@ const BillingAddress = ({ checkout, onBack, billingAddressHandler, removeProduct
     </>
   );
   if (address && !addressLoading) {
-    addressResult = address.map((address: Address, index: number) => (
-      <Grid key={index} item xs={12} lg={6}>
-        <AddressCard address={address} billingAddressHandler={billingAddressHandler} />
-      </Grid>
-    ));
+    addressResult = (
+      <>
+        <Grid item xs={12} lg={6}>
+          <AddressCard
+            address={{
+              building: 'Primer piso',
+              city: 'Medellin',
+              country: 'Colombia',
+              destination: 'Casa',
+              isDefault: true,
+              name: 'Giovanny Perez',
+              phone: '3205160429',
+              post: '050016',
+              state: 'Antioquia',
+              street: 'Calle 52'
+            }}
+            billingAddressHandler={billingAddressHandler}
+          />
+        </Grid>
+      </>
+    );
   }
 
   return (

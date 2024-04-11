@@ -33,6 +33,75 @@ import { Heart } from 'iconsax-react';
 import { SnackbarProps } from 'types/snackbar';
 import { Products } from 'types/e-commerce';
 
+const products: Products[] = [
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-1.png',
+    name: 'SOY CHACHA: PGLO EL SHOW',
+    description: 'Show de SOY CACHA',
+    isStock: true,
+    offer: '',
+    offerPrice: 20,
+    rating: 4,
+    salePrice: 19
+  },
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-2.png',
+    name: 'F*cks News: PAIS DE MIERDA',
+    description: 'Show de F*cks News',
+    isStock: true,
+    offer: '',
+    offerPrice: 40,
+    rating: 4,
+    salePrice: 39
+  },
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-3.png',
+    name: 'F*cks News: CLASICO AMERICANO',
+    description: 'Show de F*cks News',
+    isStock: true,
+    offer: '',
+    offerPrice: 30,
+    rating: 4,
+    salePrice: 29
+  }
+];
+
 const ListProduct = ({ product }: { product: Products }) => {
   const theme = useTheme();
   const router = useRouter();
@@ -63,7 +132,7 @@ const ListProduct = ({ product }: { product: Products }) => {
           color="secondary"
           variant="rounded"
           type="combined"
-          src={product.image ? `/assets/images/e-commerce/thumbs/${product.image}` : ''}
+          src={product.image ? `/assets/images/e-commerce/${product.image}` : ''}
           sx={{ borderColor: theme.palette.divider, mr: 1 }}
         />
       </ListItemAvatar>
@@ -168,7 +237,7 @@ const RelatedProducts = ({ id }: { id?: string }) => {
           p: 0
         }}
       >
-        {related.map((product: Products, index) => (
+        {products.map((product: Products, index) => (
           <ListProduct key={index} product={product} />
         ))}
       </List>

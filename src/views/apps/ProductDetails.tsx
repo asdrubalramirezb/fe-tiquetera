@@ -74,7 +74,7 @@ const ProductDetails = ({ id }: Props) => {
   }, [id, productsLoading]);
 
   // product description tabs
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(2);
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -88,7 +88,7 @@ const ProductDetails = ({ id }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  const productImages = useMemo(() => <ProductImages product={product!} />, [product]);
+  const productImages = useMemo(() => <ProductImages product={product!} id={id} />, [product, id]);
   const relatedProducts = useMemo(() => <RelatedProducts id={id} />, [id]);
 
   const loader = (
@@ -111,7 +111,7 @@ const ProductDetails = ({ id }: Props) => {
               </Grid>
               <Grid item xs={12} md={7} lg={8}>
                 <MainCard border={false} sx={{ height: '100%', bgcolor: 'secondary.lighter' }}>
-                  <ProductInfo product={product} />
+                  <ProductInfo product={product} id={id} />
                 </MainCard>
               </Grid>
             </Grid>
@@ -128,8 +128,7 @@ const ProductDetails = ({ id }: Props) => {
                   aria-label="product description tabs example"
                   variant="scrollable"
                 >
-                  <Tab label="Features" {...a11yProps(0)} />
-                  <Tab label="Specifications" {...a11yProps(1)} />
+ 
                   <Tab label="Overview" {...a11yProps(2)} />
                   <Tab
                     label={
@@ -152,12 +151,8 @@ const ProductDetails = ({ id }: Props) => {
                 </Tabs>
                 <Divider />
               </Stack>
-              <TabPanel value={value} index={0}>
-                <ProductFeatures />
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                <ProductSpecifications />
-              </TabPanel>
+              
+        
               <TabPanel value={value} index={2}>
                 <Stack spacing={2.5}>
                   <Typography color="textSecondary">
@@ -185,7 +180,7 @@ const ProductDetails = ({ id }: Props) => {
         </Grid>
         <Grid item xs={12} md={5} xl={4} sx={{ position: 'relative' }}>
           <MainCard
-            title="Related Products"
+            title="Show relacionados"
             sx={{
               height: 'calc(100% - 16px)',
               position: { xs: 'relative', md: 'absolute' },

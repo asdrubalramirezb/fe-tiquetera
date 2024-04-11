@@ -41,7 +41,7 @@ const PaymentCard = ({ type, paymentType, cards, cardHandler }: PaymentCardProps
       <Stack spacing={8} sx={{ p: 2 }} onClick={() => cardHandler(type)}>
         <Stack direction="row" alignItems="flex-start" justifyContent="space-between">
           <Stack spacing={0}>
-            <Typography variant="h5">{type === 'visa' ? 'Jennifer winget' : 'John Smith'}</Typography>
+            <Typography variant="h5">{type === 'visa' ? 'Giovanni Perez' : 'Asdrubal Ramirez'}</Typography>
             <Stack direction="row" alignItems="flex-start" spacing={1}>
               <Typography variant="h2" color="inherit" sx={{ lineHeight: '0.5rem', fontFamily: 'auto' }}>
                 .... .... ....

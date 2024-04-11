@@ -127,7 +127,7 @@ const ProductsPage = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <ProductCard
-            id={1}
+            id={2}
             image={'prod-2.png'}
             name={'F*cks News: PAIS DE MIERDA'}
             brand={''}
@@ -143,7 +143,7 @@ const ProductsPage = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <ProductCard
-            id={1}
+            id={3}
             image={'prod-3.png'}
             name={'F*cks News: CLASICO AMERICANO'}
             brand={''}

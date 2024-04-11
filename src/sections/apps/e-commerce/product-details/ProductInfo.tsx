@@ -48,45 +48,84 @@ const validationSchema = yup.object({
   color: yup.string().required('Color selection is required')
 });
 
-// ==============================|| COLORS OPTION ||============================== //
+const products: Products[] = [
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-1.png',
+    name: 'SOY CHACHA: PGLO EL SHOW',
+    description: 'Show de SOY CACHA',
+    isStock: true,
+    offer: '',
+    offerPrice: 20,
+    rating: 4,
+    salePrice: 19
+  },
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-2.png',
+    name: 'F*cks News: PAIS DE MIERDA',
+    description: 'Show de F*cks News',
+    isStock: true,
+    offer: '',
+    offerPrice: 40,
+    rating: 4,
+    salePrice: 39
+  },
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-3.png',
+    name: 'F*cks News: CLASICO AMERICANO',
+    description: 'Show de F*cks News',
+    isStock: true,
+    offer: '',
+    offerPrice: 30,
+    rating: 4,
+    salePrice: 29
+  }
+];
 
-const Colors = ({ checked, colorsData }: { checked?: boolean; colorsData: ColorsOptionsProps[] }) => {
-  const theme = useTheme();
-  return (
-    <Grid item>
-      <Tooltip title={colorsData.length && colorsData[0] && colorsData[0].label ? colorsData[0].label : ''}>
-        <ButtonBase
-          sx={{
-            borderRadius: '50%',
-            '&:focus-visible': {
-              outline: `2px solid ${theme.palette.secondary.dark}`,
-              outlineOffset: 2
-            }
-          }}
-        >
-          <Avatar
-            color="inherit"
-            size="sm"
-            sx={{
-              bgcolor: colorsData[0]?.bg,
-              color: theme.palette.mode === ThemeMode.DARK ? 'secondary.800' : 'secondary.lighter',
-              border: '3px solid',
-              borderColor: checked ? theme.palette.secondary.light : theme.palette.background.paper
-            }}
-          >
-            {' '}
-          </Avatar>
-        </ButtonBase>
-      </Tooltip>
-    </Grid>
-  );
-};
+// ==============================|| COLORS OPTION ||============================== //
 
 // ==============================|| PRODUCT DETAILS - INFORMATION ||============================== //
 
-const ProductInfo = ({ product }: { product: Products }) => {
-  const theme = useTheme();
+const ProductInfo = ({}: { product: Products; id: string }) => {
   const route = useRouter();
+  const splited = window.location.pathname.split('/');
+  const product = products[Number(splited[splited.length - 1]) - 1];
+  const theme = useTheme();
 
   const [value, setValue] = useState<number>(1);
   const { cart } = useGetCart();
@@ -157,37 +196,6 @@ const ProductInfo = ({ product }: { product: Products }) => {
       <FormikProvider value={formik}>
         <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Stack spacing={1}>
-                <Typography color="textSecondary">Color</Typography>
-                <RadioGroup row value={values.color} onChange={handleChange} aria-label="colors" name="color" id="color">
-                  {product.colors &&
-                    product.colors.map((item, index) => {
-                      const colorsData = getColor(item);
-                      return (
-                        <FormControlLabel
-                          key={index}
-                          value={item}
-                          control={
-                            <Radio
-                              sx={{ p: 0.25 }}
-                              checkedIcon={<Colors checked colorsData={colorsData} />}
-                              icon={<Colors colorsData={colorsData} />}
-                            />
-                          }
-                          label=""
-                          sx={{ ml: -0.25 }}
-                        />
-                      );
-                    })}
-                </RadioGroup>
-                {errors.color && (
-                  <FormHelperText error id="standard-label-color">
-                    {errors.color.toString()}
-                  </FormHelperText>
-                )}
-              </Stack>
-            </Grid>
             <Grid item xs={12}>
               <Stack justifyContent="flex-end" spacing={1}>
                 <Typography color="textSecondary">Quantity</Typography>
