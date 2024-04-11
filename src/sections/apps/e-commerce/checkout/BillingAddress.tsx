@@ -38,6 +38,75 @@ import { ArrowLeft2, CallCalling, Trash } from 'iconsax-react';
 
 const prodImage = '/assets/images/e-commerce';
 
+const products: Products[] = [
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-1.png',
+    name: 'SOY CHACHA: PGLO EL SHOW',
+    description: 'Show de SOY CACHA',
+    isStock: true,
+    offer: '',
+    offerPrice: 20,
+    rating: 4,
+    salePrice: 19
+  },
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-2.png',
+    name: 'F*cks News: PAIS DE MIERDA',
+    description: 'Show de F*cks News',
+    isStock: true,
+    offer: '',
+    offerPrice: 40,
+    rating: 4,
+    salePrice: 39
+  },
+  {
+    categories: ['Comedia'],
+    created: new Date(),
+    about: '',
+    colors: [],
+    date: 41,
+    discount: 19,
+    gender: '',
+    new: 2,
+    popularity: 4,
+    quantity: 1,
+    brand: '',
+    id: 1,
+    image: 'prod-3.png',
+    name: 'F*cks News: CLASICO AMERICANO',
+    description: 'Show de F*cks News',
+    isStock: true,
+    offer: '',
+    offerPrice: 30,
+    rating: 4,
+    salePrice: 29
+  }
+];
+
 // ==============================|| CHECKOUT - BILLING ADDRESS ||============================== //
 
 interface BillingAddressProps {
@@ -256,7 +325,7 @@ const BillingAddress = ({ checkout, onBack, billingAddressHandler, removeProduct
           </MainCard>
           <Stack>
             <MainCard title="Order Summery" sx={{ borderRadius: '4px 4px 0 0', borderBottom: 'none' }} content={false}>
-              {rows.map((row, index) => (
+              {products.map((row, index) => (
                 <List
                   key={index}
                   component="nav"
@@ -286,7 +355,7 @@ const BillingAddress = ({ checkout, onBack, billingAddressHandler, removeProduct
                         variant="rounded"
                         color="secondary"
                         type="combined"
-                        src={row.image ? `${prodImage}/thumbs/${row.image}` : ''}
+                        src={row.image ? `${prodImage}/${row.image}` : ''}
                       />
                     </ListItemAvatar>
                     <ListItemText
